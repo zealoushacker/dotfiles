@@ -1,0 +1,28 @@
+#!/bin/bsh
+
+alias sp='source ~/.profile'
+
+#TMUX
+function tmux-ws() {
+  # check whether a pair session already exists
+  tmux_status=$(tmux -S /tmp/tmux-socket has-session -t pair)
+  if [ "$?" -ne "0" ]; then 
+    # if a pair session dne start one and detach from it
+    tmux -S /tmp/tmux-socket new -s -d pair
+    tmux -S /tmp/tmux-socket split-window -s -d pair
+    tmux -S /tmp/tmux-socket split-window -s -d pair
+  else
+    tmux -S /tmp/tmux-socket attach -t pair
+  fi
+}
+
+#GIT
+alias gpom='git push origin master'
+alias ga.='git add .'
+alias gc-m='git commit -m'
+alias gpush='git push origin master'
+
+function git-push-develop() {
+  git push origin develop
+  git push stage develop:master
+}
