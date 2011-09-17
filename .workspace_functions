@@ -1,18 +1,24 @@
-#!/bin/bsh
-
-alias sp='source ~/.profile'
-
+#!/bin/bash
 #TMUX
+#PRE-REQUISITE: TMUX installed on your system
 function tmux-ws() {
   # check whether a pair session already exists
   tmux_status=$(tmux -S /tmp/tmux-socket has-session -t pair)
   if [ "$?" -ne "0" ]; then 
     # if a pair session dne start one and detach from it
-    tmux -S /tmp/tmux-socket new -s -d pair
-    tmux -S /tmp/tmux-socket split-window -s -d pair
-    tmux -S /tmp/tmux-socket split-window -s -d pair
+    tmux -S /tmp/tmux-socket new -d -s pair
+    # execute the command that is passed in via the first argument in the current pane
+    #$(cd $1)
+    # first, split the panes vertically, creating a right-hand pane 25% of the screen
+    tmux -S /tmp/tmux-socket split-window -h -p 25
+    # split the resulting right-hand pane into 1/3 and 2/3
+    tmux -S /tmp/tmux-socket split-window -p 66
+    # split the resulting bottom pane into two
+    tmux -S /tmp/tmux-socket split-window -p 50
+    
+    tmux-connect
   else
-    tmux -S /tmp/tmux-socket attach -t pair
+    tmux-connect
   fi
 }
 
