@@ -1,9 +1,9 @@
 #!/bin/bash
+#TMUX
+#PRE-REQUISITE: TMUX installed on your system
 function tmux-connect() {
   tmux -S /tmp/tmux-socket attach -t pair
 }
-#TMUX
-#PRE-REQUISITE: TMUX installed on your system
 function tmux-ws() {
   # check whether a pair session already exists
   tmux_status=$(tmux -S /tmp/tmux-socket has-session -t pair)
