@@ -1,4 +1,7 @@
 #!/bin/bash
+function tmux-connect() {
+  tmux -S /tmp/tmux-socket attach -t pair
+}
 #TMUX
 #PRE-REQUISITE: TMUX installed on your system
 function tmux-ws() {
