@@ -12,8 +12,8 @@ function tmux-ws() {
     tmux -S /tmp/tmux-socket new -d -s pair
     # execute the command that is passed in via the first argument in the current pane
     #$(cd $1)
-    # first, split the panes vertically, creating a right-hand pane 25% of the screen
-    tmux -S /tmp/tmux-socket split-window -h -p 25
+    # first, split the panes vertically, creating a right-hand pane 10% of the screen
+    tmux -S /tmp/tmux-socket split-window -h -p 10
     # split the resulting right-hand pane into 1/3 and 2/3
     tmux -S /tmp/tmux-socket split-window -p 66
     # split the resulting bottom pane into two
