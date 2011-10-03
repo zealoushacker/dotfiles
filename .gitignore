@@ -1,6 +1,7 @@
 #RUBY 
 *.gem
 *.rbc
+*.swp
 .bundle
 .config
 coverage

@@ -19,6 +19,23 @@ function tmux-ws() {
     # split the resulting bottom pane into two
     tmux -S /tmp/tmux-socket split-window -p 50
     
+    # execute the commands in the TMUX_DEFAULTS environment variable if it exists
+    if ( set -u; : $TMUX_DEFAULTS == 1 );
+    then
+      for var in "$TMUX_DEFAULTS"
+      do
+        #first split by semicolon 
+        args=$(echo $var | tr ";" "\n")
+        for arg in $args
+        do
+          echo "$arg"
+        done
+      done
+    fi
+
+    #tmux -S /tmp/tmux-socket send-keys -t 0 $1 "Enter"
+    #tmux -S /tmp/tmux-socket send-keys -t 1 $1 "Enter"
+
     tmux-connect
   else
     tmux-connect
