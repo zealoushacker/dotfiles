@@ -27,3 +27,12 @@ au InsertLeave * hi statusline guibg=green
 
 " default the statusline to green when entering Vim
 hi statusline guibg=green
+
+map tl :tabnext<CR>
+map th :tabprev<CR>
+map tn :tabnew<CR>
+map td :tabclose<CR>
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
