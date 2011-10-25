@@ -36,3 +36,17 @@ map td :tabclose<CR>
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+
+" Add pathogen
+call pathogen#infect()
+
+" Move around vim panes with jkhl keys (use Ctrl+jkhl)
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Added scss-syntax.vim settings
+au BufRead,BufNewFile *.scss set filetype=scss
+
+set pastetoggle=<F6>
