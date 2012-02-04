@@ -30,7 +30,7 @@ hi statusline guibg=green
 
 map tl :tabnext<CR>
 map th :tabprev<CR>
-map tn :tabnew<CR>
+map tn :tabnew<CR>:e .<CR>
 map td :tabclose<CR>
 
 " Directories for swp files
