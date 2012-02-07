@@ -1,4 +1,18 @@
 #!/bin/bash
+function work() {
+  work_dir="$HOME/Documents/work/"
+  type=$1
+  client_or_project=$2
+  project=$3
+  cd $work_dir
+  if [[ $type == "f" ]]
+  then cd freelance/Clients/$client_or_project/$project
+  fi
+  if [[ $type == "p" ]] 
+  then cd personal/$client_or_project
+  fi
+}
+
 #TMUX
 #PRE-REQUISITE: TMUX installed on your system
 function tmux-connect() {
