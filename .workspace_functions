@@ -33,14 +33,14 @@ function tmux-connect() {
 function tmux-ws() {
   # grab the socket name from the first argument
   if [ -z $1 ]; then 
-    socket="tmux-socket" 
+    socket="default_socket" 
   else 
     socket=$1
   fi
 
   # grab the session name from the second argument
   if [ -z $2 ]; then 
-    session="tmux-session" 
+    session="default_session" 
   else 
     session=$2
   fi
